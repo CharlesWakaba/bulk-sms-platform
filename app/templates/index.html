@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to the Bulk SMS Platform</h1>
+    {% if current_user.is_authenticated %}
+        <p>Hello, {{ current_user.username }}! You can start sending SMS by clicking <a href="{{ url_for('send_sms') }}">here</a>.</p>
+    {% else %}
+        <p>Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a> to start using the platform.</p>
+    {% endif %}
+{% endblock %}
